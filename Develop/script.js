@@ -12,10 +12,11 @@ var numberString = "0123456789";
 // var randomSpecialChar = specialChar[Math.floor(Math.random() * specialChar.length)];
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(); 
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 
+}
   // Prompt for character length between 8-128, write a loop to make sure the user enters the correct numbers
   function generatePassword() {  
   var userLength = prompt("How long would you like your password to be? Type a number between 8 and 128.");
@@ -23,16 +24,42 @@ function writePassword() {
       alert("Please type a number between 8 and 128.");
       userLength = prompt("How long would you like your password to be? Type a number between 8 and 128.");
     }
-  }
+  
       // confirm whether the user wants upper case letters in their password
       var userUpper = confirm("Would you like to include upper case letters in your password?");
       // confirm whether the user wants lower case letters in their password
-      var userlower = confirm("Would you like to include lower case letters in your password?");
+      var userLower = confirm("Would you like to include lower case letters in your password?");
       // confirm whether the user wants numbers in their password
       var userNumber = confirm("Would you like to include numbers in your password?");
       // confirm whether the user wants special characters in their password
       var userSpecial = confirm("Would you like to include special characters in your password?")
-}
+        // making a variable for password and the variable to be returned, and assigning them empty strings.
+      var passwordString = "";
+      var userPassword = "";
+          // if yes, include uppercase letters
+      if (userUpper) {
+        passwordString += upperCaseString;
+      }
+                // if yes, include lowercase letters
+      if (userLower) {
+        passwordString += lowerCaseString;
+      }
+      // if yes, include numbers
+      if (userNumber) {
+        passwordString += numberString;
+      }
+      // if yes, include special characters
+      if (userSpecial) {
+        passwordString += specialChar;
+      }
+        // choose a random set of characters from the string assigned by the user's parameter's
+        for (var i = 0; i < userLength; i++) {
+          userPassword += passwordString[Math.floor(Math.random() * passwordString.length)];
+        }
+        // returned string, to be assigned to the generate password function
+        return userPassword;
+    }
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
