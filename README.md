@@ -1,4 +1,4 @@
-# JS-Password-Generator
+# Homework #3: JS-Password-Generator
 homework assignment no. 3
 Github link = https://github.com/markmckenna37/JS-Password-Generator
 Live page link = https://markmckenna37.github.io/JS-Password-Generator/
