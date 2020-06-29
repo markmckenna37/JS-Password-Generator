@@ -31,10 +31,20 @@
     // confirm whether the user wants numbers in their password
     var userNumber = confirm("Would you like to include numbers in your password?");
     // confirm whether the user wants special characters in their password
-    var userSpecial = confirm("Would you like to include special characters in your password?")
+    var userSpecial = confirm("Would you like to include special characters in your password?");
+   
+    // Checking to confirm if the user chose at least 1 option for password characters. If not, the questions repeat 
+    while ((userUpper === false) && (userLower === false) && (userNumber === false) && (userSpecial === false)) {
+      alert("Please choose at least 1 option for password characters.");
+       userUpper = confirm("Would you like to include upper case letters in your password?");
+       userLower = confirm("Would you like to include lower case letters in your password?");
+       userNumber = confirm("Would you like to include numbers in your password?");
+       userSpecial = confirm("Would you like to include special characters in your password?");
+    }
     // making a variable for password and the variable to be returned, and assigning them empty strings.
     var passwordString = "";
     var userPassword = "";
+
     // if yes, include uppercase letters
     if (userUpper) {
       passwordString += upperCaseString;
